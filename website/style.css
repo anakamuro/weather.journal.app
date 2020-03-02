@@ -8,7 +8,7 @@ body {
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     background: #f23557;
-    color: #f0d43a;
+    color: #e4c82b;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
