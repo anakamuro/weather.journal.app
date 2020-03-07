@@ -1,5 +1,5 @@
-let baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
-let apiKey = "&appid=2319bf7a9b5a4e6cd5d19fdb546566d9";
+const baseURL = "http://api.openweathermap.org/data/2.5/weather?q=";
+const apiKey = "&appid=2319bf7a9b5a4e6cd5d19fdb546566d9";
 
 let d = new Date();
 let newDate = (d.getMonth() + 1) + "." + d.getDate() + "." + d.getFullYear();
@@ -32,6 +32,9 @@ const getWeather = async (baseURL, newZip, apiKey) => {
   }
 };
 
+
+ 
+ 
 const projectData = async (url = "", data = {}) => {
   console.log(data);
   const response = await fetch(url, {
