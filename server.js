@@ -20,23 +20,40 @@ app.use(cors());
 app.use(express.static("website"));
 // Initialize the main project folder
 
-app.post("/add", addData);
-
-function addData(request, response) {
-  const newEntry = {
-    temp: request.body.temp,
-    date: request.body.date,
-    content: request.body.content
-  };
-  projectData = newEntry;
-  response.send(projectData);
-  console.log(projectData);
+const fakeData = {
+  animal: 'lion',
+  fact: 'lions are fun'
 }
 
-app.get("/all", getData);
+app.get('/fakeAnimalData', getFakeData)
 
-function getData(request, response) {
-  response.send(projectData);
+function getFakeData(req, res){
+  res.send(fakeData)
+}
+
+
+const animalData = []
+
+app.get('/all', getData)
+
+function getData(req, res){
+  res.send(animalData)
+  console.log(animalData)
+}
+
+
+app.post('/addAnimal', addAnimal);
+
+function addAnimal(req,res){
+  console.log(req.body)
+  newEntry = {
+    animal: req.body.animal,
+    facts: req.body.fact,
+    fav: req.body.fav
+  }
+
+  animalData.push(newEntry)
+  console.log(animalData)
 }
 
 const port = 3000;
@@ -45,3 +62,6 @@ app.listen(port, listening);
 function listening() {
   console.log(`running on localhost: ${port}`);
 }
+
+
+
